@@ -7,13 +7,13 @@
 */
 
 let height = 1.6;
-let weight = 40;
+let weight = 48.6;
 
 const BMI = weight / (height * height);
 console.log('Your BMI: ' + BMI);
 
-let suggestIncrease = (19 - BMI).toFixed(2);
-let suggestDecrease = (BMI - 24.9).toFixed(2);
+let suggestIncrease = ((19 - BMI)*(height * height)).toFixed(2);
+let suggestDecrease = ((BMI - 24.9)*(height * height)).toFixed(2);
 
 if(BMI < 18.5){
 	console.log('Underweight! You should try to increase more ' + suggestIncrease + ' kg');
