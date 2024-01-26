@@ -1,3 +1,4 @@
+const { filterEvenNum, filterOddNum } = require("../lab_3/ArrayHelper");
 /**
  * Count how many odd, even number(s) in an integer array
  * 	let intArr = [1, 2, 3, 4, 5];
@@ -17,3 +18,10 @@ for (const value of intArr) {
 
 console.log("Even numbers: ", totalEven);
 console.log("Odd numbers: ", totalOdd);
+
+// Second approach | Delegation
+let totalEvenNum = intArr.filter(filterEvenNum).length;
+let totalOddNum = intArr.filter(filterOddNum).length;
+
+console.log("totalEvenNum: ", totalEvenNum);
+console.log("totalOddNum: ", totalOddNum);
