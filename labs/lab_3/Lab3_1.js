@@ -18,10 +18,3 @@ for (const value of intArr) {
 
 console.log("Even numbers: ", totalEven);
 console.log("Odd numbers: ", totalOdd);
-
-// Second approach | Delegation
-let totalEvenNum = intArr.filter(filterEvenNum).length;
-let totalOddNum = intArr.filter(filterOddNum).length;
-
-console.log("totalEvenNum: ", totalEvenNum);
-console.log("totalOddNum: ", totalOddNum);
