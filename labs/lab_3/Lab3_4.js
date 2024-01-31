@@ -4,24 +4,40 @@
  * Array 02: [1, 13, 16, 27, 99]
  */
 
-let arr1 = [1, 12, 16, 28, 34]; 
-let arr2 = [1, 13, 16, 27, 99];
-let mergeArr = arr1.concat(arr2);
+const arr1 = [1, 12, 16, 28, 34]; 
+const arr2 = [1, 13, 16, 27, 99];
+const mergedArr = [];
 
-let unsortedPosition = mergeArr.length - 1;
-while(unsortedPosition > 0){
-	for (let index = 0; index < unsortedPosition; index++) {
-		const leftValue = mergeArr[index];
-		const rightValue = mergeArr[index + 1];
+const n1 = arr1.length;
+const n2 = arr2.length;
+let i = 0;
+let j = 0;
+let mergedPosition = 0;
 
-		if(leftValue > rightValue){
-			let temp = leftValue;
-			mergeArr[index] = rightValue;
-			mergeArr[index+1] = temp;
-		}
+while(i < n1 && j < n2){
+
+	if(arr1[i] < arr2[j]){
+		mergedArr[mergedPosition] = arr1[i];
+		i++;
+	} else{
+		mergedArr[mergedPosition] = arr2[j];
+		j++
 	}
-
-	unsortedPosition--;
+	mergedPosition++;
 }
 
-console.log(mergeArr);
+while(i < n1){
+	mergedArr[mergedPosition] = arr1[i];
+	i++;
+	mergedPosition++;
+}
+
+while(j < n2){
+	mergedArr[mergedPosition] = arr2[j];
+	j++;
+	mergedPosition++
+}
+
+console.log('arr1: ', arr1);
+console.log('arr2: ', arr2);
+console.log('merged: ', mergedArr);
