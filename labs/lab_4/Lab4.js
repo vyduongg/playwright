@@ -16,7 +16,9 @@ function myBankApp() {
 
   while (isContinuing) {
     printOptionMenu();
-    const userOption = Number(readlineSync.question("Please select option: "));
+    const userOption = Number(
+      readlineSync.question("\nPlease select option: ")
+    );
 
     switch (userOption) {
       case 1:
@@ -30,11 +32,11 @@ function myBankApp() {
 
       case 0:
         isContinuing = false;
-        console.log("Goodbye - See you later!!");
+        console.log("\nGoodbye - See you later!!");
         break;
 
       default:
-        console.log("Wrong Option! Please choose again!!");
+        console.log("\nWrong Option! Please choose again!!\n");
     }
   }
 }
@@ -64,14 +66,22 @@ function withdrawMoney() {
   const amountToWithdraw = Number(
     readlineSync.question("Please input an amount: ")
   );
-  const currentBalance = account.balance;
-  if (account.balance < amountToWithdraw) {
-    console.log("Insufficient balance!!");
-    return;
-  }
 
-  account.balance = currentBalance - amountToWithdraw;
-  _logAccountInfo(account);
+  if (
+    amountToWithdraw < 0 ||
+    (parseFloat(amountToWithdraw) &&
+      parseFloat(amountToWithdraw) !== parseInt(amountToWithdraw))
+  ) {
+    console.log("Please input valid amount!!!!");
+  } else {
+    const currentBalance = account.balance;
+    if (account.balance < amountToWithdraw) {
+      console.log("Insufficient balance!!");
+      return;
+    }
+    account.balance = currentBalance - amountToWithdraw;
+    _logAccountInfo(account);
+  }
 }
 
 function _getAccountNumber() {
@@ -81,6 +91,7 @@ function _getAccountNumber() {
 function _logAccountInfo(account) {
   if (account) {
     console.log("Your account is: ", account);
+    console.log("\n");
   } else {
     console.log("There is no account with provided info!");
   }
