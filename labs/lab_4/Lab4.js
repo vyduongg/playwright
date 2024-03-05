@@ -1,9 +1,9 @@
 const readlineSync = require("readline-sync");
 
 const account1 = {
-  accountNumber: "001",
-  routingNumber: "33",
-  balance: 10000,
+  accountNumber : "001",
+  routingNumber : "33",
+  balance : 10000,
 };
 
 const account2 = JSON.parse(JSON.stringify(account1));
