@@ -10,7 +10,7 @@ export default class AnimalRacing {
 				winner = animal;
 			}
 		})
-		return winner
+		return winner;
 
 	}
 }
